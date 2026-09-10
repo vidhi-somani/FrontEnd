@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f2f5;
+}
+
+.ludo-board {
+  width: 600px;
+  height: 600px;
+  display: grid;
+  grid-template-columns: 6fr 3fr 6fr;
+  grid-template-rows: 6fr 3fr 6fr;
+  border: 5px solid #000;
+  background-color: #fff;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.3);
+}
+
+/* ===== Home quadrants ===== */
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-red { grid-column: 1; grid-row: 1; background-color: #e74c3c; }
+.home-green { grid-column: 3; grid-row: 1; background-color: #2ecc71; }
+.home-yellow { grid-column: 3; grid-row: 3; background-color: #f1c40f; }
+.home-blue { grid-column: 1; grid-row: 3; background-color: #3498db; }
+
+.home-inner {
+  width: 70%;
+  height: 70%;
+  background-color: #fff;
+  border-radius: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 12%;
+  padding: 12%;
+}
+
+.peg {
+  border-radius: 50%;
+  box-shadow: inset 0 -3px 4px rgba(0,0,0,0.3);
+}
+
+.home-red .peg { background-color: #e74c3c; }
+.home-green .peg { background-color: #2ecc71; }
+.home-yellow .peg { background-color: #f1c40f; }
+.home-blue .peg { background-color: #3498db; }
+
+/* ===== Arms (top, bottom, left, right) ===== */
+.arm-top, .arm-bottom {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+
+.arm-left, .arm-right {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.arm-top { grid-column: 2; grid-row: 1; }
+.arm-bottom { grid-column: 2; grid-row: 3; }
+.arm-left { grid-column: 1; grid-row: 2; }
+.arm-right { grid-column: 3; grid-row: 2; }
+
+.cell {
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+/* Colored home-run lane: middle column for top/bottom arms */
+.arm-top .cell:nth-child(3n+2) { background-color: #2ecc71; }
+.arm-bottom .cell:nth-child(3n+2) { background-color: #3498db; }
+
+/* Colored home-run lane: middle row for left/right arms */
+.arm-left .cell:nth-child(n+7):nth-child(-n+12) { background-color: #e74c3c; }
+.arm-right .cell:nth-child(n+7):nth-child(-n+12) { background-color: #f1c40f; }
+
+/* Starting square (star) for each color */
+.arm-top .cell:nth-child(2),
+.arm-bottom .cell:nth-child(17),
+.arm-left .cell:nth-child(7),
+.arm-right .cell:nth-child(12) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px;
+}
+
+.arm-top .cell:nth-child(2)::before,
+.arm-bottom .cell:nth-child(17)::before,
+.arm-left .cell:nth-child(7)::before,
+.arm-right .cell:nth-child(12)::before {
+  content: "\2605";
+}
+
+/* ===== Center home triangle ===== */
+.center {
+  grid-column: 2;
+  grid-row: 2;
+  background: conic-gradient(from -45deg,
+    #2ecc71 0deg 90deg,
+    #f1c40f 90deg 180deg,
+    #3498db 180deg 270deg,
+    #e74c3c 270deg 360deg);
+}

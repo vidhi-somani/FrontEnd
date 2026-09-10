@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spotify Clone</title>
+<link rel="stylesheet" href="Spotify.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Circular+Std:wght@400;500;700;900&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" width="34" height="34" fill="#1ed760"><circle cx="12" cy="12" r="12"/><path d="M17.5 16.6c-.2.3-.6.4-.9.2-2.5-1.5-5.6-1.9-9.3-1-.4.1-.7-.1-.8-.5-.1-.4.1-.7.5-.8 4-.9 7.5-.5 10.3 1.2.3.2.4.6.2.9zm1.2-2.7c-.3.4-.8.5-1.1.3-2.8-1.7-7.1-2.2-10.4-1.2-.4.1-.9-.1-1-.5-.1-.4.1-.9.5-1 3.8-1.1 8.5-.6 11.7 1.3.4.2.5.7.3 1.1zm.1-2.8C15.4 9.1 9.8 8.9 6.4 10c-.5.1-1-.2-1.1-.6-.1-.5.2-1 .6-1.1 3.9-1.2 10.1-1 13.9 1.3.4.3.6.9.3 1.3-.3.4-.9.5-1.3.2z" fill="#000"/></svg>
+        <span>Spotify</span>
+      </div>
+      <nav class="main-nav">
+        <a href="#" class="nav-item active">
+          <svg viewBox="0 0 24 24"><path d="M12.5 3.5a1 1 0 00-1 0L3 9v11a1 1 0 001 1h5.5a1 1 0 001-1v-5h5v5a1 1 0 001 1H21a1 1 0 001-1V9l-9.5-5.5z"/></svg>
+          <span>Home</span>
+        </a>
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24"><path d="M10.5 3a7.5 7.5 0 105.06 13.06l4.19 4.19a1 1 0 001.42-1.42l-4.19-4.19A7.5 7.5 0 0010.5 3zm-5.5 7.5a5.5 5.5 0 1111 0 5.5 5.5 0 01-11 0z"/></svg>
+          <span>Search</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="library">
+      <div class="library-header">
+        <div class="nav-item library-toggle">
+          <svg viewBox="0 0 24 24"><path d="M3 22a1 1 0 01-1-1V3a1 1 0 011-1h3a1 1 0 011 1v18a1 1 0 01-1 1H3zm7 0a1 1 0 01-1-1V3a1 1 0 011-1h3a1 1 0 011 1v18a1 1 0 01-1 1h-3zm7-1V8a1 1 0 011-1h3a1 1 0 011 1v13a1 1 0 01-1 1h-3a1 1 0 01-1-1z"/></svg>
+          <span>Your Library</span>
+        </div>
+        <button class="icon-btn" title="Create playlist" aria-label="Create playlist">
+          <svg viewBox="0 0 24 24"><path d="M12 3a1 1 0 011 1v7h7a1 1 0 010 2h-7v7a1 1 0 01-2 0v-7H4a1 1 0 010-2h7V4a1 1 0 011-1z"/></svg>
+        </button>
+      </div>
+
+      <div class="filter-pills">
+        <button class="pill active">Playlists</button>
+        <button class="pill">Artists</button>
+        <button class="pill">Albums</button>
+      </div>
+
+      <ul class="playlist-list">
+        <li class="playlist-item">
+          <img src="https://picsum.photos/seed/liked/64" alt="">
+          <div class="playlist-info">
+            <p class="playlist-name">Liked Songs</p>
+            <p class="playlist-meta">Playlist &middot; 214 songs</p>
+          </div>
+        </li>
+        <li class="playlist-item">
+          <img src="https://picsum.photos/seed/midnight/64" alt="">
+          <div class="playlist-info">
+            <p class="playlist-name">Midnight Drive</p>
+            <p class="playlist-meta">Playlist &middot; Rhea Kapoor</p>
+          </div>
+        </li>
+        <li class="playlist-item">
+          <img src="https://picsum.photos/seed/lofi/64" alt="">
+          <div class="playlist-info">
+            <p class="playlist-name">Lo-fi Focus</p>
+            <p class="playlist-meta">Playlist &middot; 88 songs</p>
+          </div>
+        </li>
+        <li class="playlist-item">
+          <img src="https://picsum.photos/seed/monsoon/64" alt="">
+          <div class="playlist-info">
+            <p class="playlist-name">Monsoon Acoustics</p>
+            <p class="playlist-meta">Playlist &middot; Arjun Mehta</p>
+          </div>
+        </li>
+        <li class="playlist-item">
+          <img src="https://picsum.photos/seed/gymhits/64" alt="">
+          <div class="playlist-info">
+            <p class="playlist-name">Gym Power Hour</p>
+            <p class="playlist-meta">Playlist &middot; 61 songs</p>
+          </div>
+        </li>
+        <li class="playlist-item">
+          <img src="https://picsum.photos/seed/oldschool/64" alt="">
+          <div class="playlist-info">
+            <p class="playlist-name">Old School Bollywood</p>
+            <p class="playlist-meta">Playlist &middot; 132 songs</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main class="main">
+    <header class="topbar">
+      <div class="nav-arrows">
+        <button class="icon-btn round" aria-label="Back">
+          <svg viewBox="0 0 24 24"><path d="M15.5 19a1 1 0 01-.7-.3l-6-6a1 1 0 010-1.4l6-6a1 1 0 111.4 1.4L11 12l5.2 5.3A1 1 0 0115.5 19z"/></svg>
+        </button>
+        <button class="icon-btn round" aria-label="Forward">
+          <svg viewBox="0 0 24 24"><path d="M8.5 19a1 1 0 01-.7-1.7L13 12 7.8 6.7a1 1 0 111.4-1.4l6 6a1 1 0 010 1.4l-6 6a1 1 0 01-.7.3z"/></svg>
+        </button>
+      </div>
+
+      <div class="topbar-actions">
+        <button class="pill-btn">Explore Premium</button>
+        <button class="icon-btn round" aria-label="Notifications">
+          <svg viewBox="0 0 24 24"><path d="M12 2a1 1 0 011 1v1.06A7 7 0 0119 11v3.59l1.7 1.7a1 1 0 01-.7 1.71H4a1 1 0 01-.7-1.71L5 14.59V11a7 7 0 016-6.94V3a1 1 0 011-1zm0 19a2.5 2.5 0 002.45-2h-4.9A2.5 2.5 0 0012 21z"/></svg>
+        </button>
+        <div class="user-chip">
+          <img src="https://i.pravatar.cc/40?img=12" alt="">
+        </div>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <section class="greeting-row">
+        <h1 id="greeting">Good evening</h1>
+      </section>
+
+      <section class="quick-grid">
+        <a class="quick-card" href="#">
+          <img src="https://picsum.photos/seed/quick1/80" alt="">
+          <span>Liked Songs</span>
+          <button class="play-btn" aria-label="Play">▶</button>
+        </a>
+        <a class="quick-card" href="#">
+          <img src="https://picsum.photos/seed/quick2/80" alt="">
+          <span>Daily Mix 1</span>
+          <button class="play-btn" aria-label="Play">▶</button>
+        </a>
+        <a class="quick-card" href="#">
+          <img src="https://picsum.photos/seed/quick3/80" alt="">
+          <span>Monsoon Acoustics</span>
+          <button class="play-btn" aria-label="Play">▶</button>
+        </a>
+        <a class="quick-card" href="#">
+          <img src="https://picsum.photos/seed/quick4/80" alt="">
+          <span>Gym Power Hour</span>
+          <button class="play-btn" aria-label="Play">▶</button>
+        </a>
+        <a class="quick-card" href="#">
+          <img src="https://picsum.photos/seed/quick5/80" alt="">
+          <span>Old School Bollywood</span>
+          <button class="play-btn" aria-label="Play">▶</button>
+        </a>
+        <a class="quick-card" href="#">
+          <img src="https://picsum.photos/seed/quick6/80" alt="">
+          <span>Midnight Drive</span>
+          <button class="play-btn" aria-label="Play">▶</button>
+        </a>
+      </section>
+
+      <section class="row">
+        <div class="row-header">
+          <h2>Made for you</h2>
+          <a href="#" class="show-all">Show all</a>
+        </div>
+        <div class="card-scroll">
+          <article class="card">
+            <div class="card-art">
+              <img src="https://picsum.photos/seed/mix1/300" alt="">
+              <button class="play-btn" aria-label="Play">▶</button>
+            </div>
+            <h3>Daily Mix 1</h3>
+            <p>Arjun Mehta, Rhea Kapoor, Sana Malik and more</p>
+          </article>
+          <article class="card">
+            <div class="card-art">
+              <img src="https://picsum.photos/seed/mix2/300" alt="">
+              <button class="play-btn" aria-label="Play">▶</button>
+            </div>
+            <h3>Daily Mix 2</h3>
+            <p>Kabir Sen, Neha Rathod, Vikram Iyer and more</p>
+          </article>
+          <article class="card">
+            <div class="card-art">
+              <img src="https://picsum.photos/seed/discover/300" alt="">
+              <button class="play-btn" aria-label="Play">▶</button>
+            </div>
+            <h3>Discover Weekly</h3>
+            <p>Your weekly mixtape of fresh music</p>
+          </article>
+          <article class="card">
+            <div class="card-art">
+              <img src="https://picsum.photos/seed/release/300" alt="">
+              <button class="play-btn" aria-label="Play">▶</button>
+            </div>
+            <h3>Release Radar</h3>
+            <p>Catch all the latest music from artists you follow</p>
+          </article>
+          <article class="card">
+            <div class="card-art">
+              <img src="https://picsum.photos/seed/chill/300" alt="">
+              <button class="play-btn" aria-label="Play">▶</button>
+            </div>
+            <h3>Chill Mix</h3>
+            <p>Take it easy with this laid-back mix</p>
+          </article>
+          <article class="card">
+            <div class="card-art">
+              <img src="https://picsum.photos/seed/onrepeat/300" alt="">
+              <button class="play-btn" aria-label="Play">▶</button>
+            </div>
+            <h3>On Repeat</h3>
+            <p>Songs you can't get enough of right now</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="row">
+        <div class="row-header">
+          <h2>Popular albums</h2>
+          <a href="#" class="show-all">Show all</a>
+        </div>
+        <div class="card-scroll">
+          <article class="card">
+            <div class="card-art">
+              <img src="https://picsum.photos/seed/album1/300" alt="">
+              <button class="play-btn" aria-label="Play">▶</button>
+            </div>
+            <h3>Neon Skyline</h3>
+            <p>Arjun Mehta</p>
+          </article>
+          <article class="card">
+            <div class="card-art">
+              <img src="https://picsum.photos/seed/album2/300" alt="">
+              <button class="play-btn" aria-label="Play">▶</button>
+            </div>
+            <h3>Coastal Hours</h3>
+            <p>Sana Malik</p>
+          </article>
+          <article class="card">
+            <div class="card-art">
+              <img src="https://picsum.photos/seed/album3/300" alt="">
+              <button class="play-btn" aria-label="Play">▶</button>
+            </div>
+            <h3>Static &amp; Gold</h3>
+            <p>The Fauna Project</p>
+          </article>
+          <article class="card">
+            <div class="card-art">
+              <img src="https://picsum.photos/seed/album4/300" alt="">
+              <button class="play-btn" aria-label="Play">▶</button>
+            </div>
+            <h3>Paper Moons</h3>
+            <p>Kabir Sen</p>
+          </article>
+          <article class="card">
+            <div class="card-art">
+              <img src="https://picsum.photos/seed/album5/300" alt="">
+              <button class="play-btn" aria-label="Play">▶</button>
+            </div>
+            <h3>Low Tide</h3>
+            <p>Rhea Kapoor</p>
+          </article>
+          <article class="card">
+            <div class="card-art">
+              <img src="https://picsum.photos/seed/album6/300" alt="">
+              <button class="play-btn" aria-label="Play">▶</button>
+            </div>
+            <h3>Amber Hours</h3>
+            <p>Vikram Iyer</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="row">
+        <div class="row-header">
+          <h2>Your top artists</h2>
+          <a href="#" class="show-all">Show all</a>
+        </div>
+        <div class="card-scroll">
+          <article class="card artist-card">
+            <div class="card-art round">
+              <img src="https://i.pravatar.cc/300?img=33" alt="">
+              <button class="play-btn" aria-label="Play">▶</button>
+            </div>
+            <h3>Arjun Mehta</h3>
+            <p>Artist</p>
+          </article>
+          <article class="card artist-card">
+            <div class="card-art round">
+              <img src="https://i.pravatar.cc/300?img=45" alt="">
+              <button class="play-btn" aria-label="Play">▶</button>
+            </div>
+            <h3>Sana Malik</h3>
+            <p>Artist</p>
+          </article>
+          <article class="card artist-card">
+            <div class="card-art round">
+              <img src="https://i.pravatar.cc/300?img=52" alt="">
+              <button class="play-btn" aria-label="Play">▶</button>
+            </div>
+            <h3>Kabir Sen</h3>
+            <p>Artist</p>
+          </article>
+          <article class="card artist-card">
+            <div class="card-art round">
+              <img src="https://i.pravatar.cc/300?img=15" alt="">
+              <button class="play-btn" aria-label="Play">▶</button>
+            </div>
+            <h3>Rhea Kapoor</h3>
+            <p>Artist</p>
+          </article>
+          <article class="card artist-card">
+            <div class="card-art round">
+              <img src="https://i.pravatar.cc/300?img=68" alt="">
+              <button class="play-btn" aria-label="Play">▶</button>
+            </div>
+            <h3>Vikram Iyer</h3>
+            <p>Artist</p>
+          </article>
+        </div>
+      </section>
+
+      <footer class="content-footer">
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4>Company</h4>
+            <a href="#">About</a>
+            <a href="#">Jobs</a>
+            <a href="#">For the Record</a>
+          </div>
+          <div class="footer-col">
+            <h4>Communities</h4>
+            <a href="#">For Artists</a>
+            <a href="#">Developers</a>
+            <a href="#">Advertising</a>
+          </div>
+          <div class="footer-col">
+            <h4>Useful links</h4>
+            <a href="#">Support</a>
+            <a href="#">Free Mobile App</a>
+          </div>
+        </div>
+        <hr>
+        <p class="legal">This is a static frontend clone built for practice. Not affiliated with Spotify AB.</p>
+      </footer>
+
+    </div>
+  </main>
+</div>
+
+<!-- ============ NOW PLAYING BAR ============ -->
+<footer class="player-bar">
+  <div class="player-track">
+    <img src="https://picsum.photos/seed/nowplaying/56" alt="">
+    <div class="player-track-info">
+      <p class="track-title">Coastal Hours</p>
+      <p class="track-artist">Sana Malik</p>
+    </div>
+    <button class="icon-btn small" aria-label="Save to Liked Songs">
+      <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-10.2-9.2C0.2 8.7 1.4 5 4.9 4 7 3.4 9 4.2 10 5.8 11 4.2 13 3.4 15.1 4c3.5 1 4.7 4.7 3.1 7.8C15.5 16.4 12 21 12 21z"/></svg>
+    </button>
+  </div>
+
+  <div class="player-center">
+    <div class="player-controls">
+      <button class="icon-btn" aria-label="Shuffle">
+        <svg viewBox="0 0 24 24"><path d="M3 6h3.5l7.1 8.4L17.5 18H21m0 0l-3-3m3 3l-3 3M21 6h-3.5l-2.9 3.4M3 18h3.5l2.9-3.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="icon-btn" aria-label="Previous">
+        <svg viewBox="0 0 24 24"><path d="M6 5a1 1 0 011 1v12a1 1 0 01-2 0V6a1 1 0 011-1zm3.7 6.16l9-6A1 1 0 0120 6v12a1 1 0 01-1.55.83l-9-6a1 1 0 010-1.67z"/></svg>
+      </button>
+      <button class="icon-btn play-toggle" aria-label="Play">
+        <svg viewBox="0 0 24 24"><path d="M8 5.5v13a1 1 0 001.5.87l11-6.5a1 1 0 000-1.74l-11-6.5A1 1 0 008 5.5z"/></svg>
+      </button>
+      <button class="icon-btn" aria-label="Next">
+        <svg viewBox="0 0 24 24"><path d="M18 5a1 1 0 00-1 1v12a1 1 0 002 0V6a1 1 0 00-1-1zm-3.7 6.16l-9-6A1 1 0 004 6v12a1 1 0 001.55.83l9-6a1 1 0 000-1.67z"/></svg>
+      </button>
+      <button class="icon-btn" aria-label="Repeat">
+        <svg viewBox="0 0 24 24"><path d="M7 7h10a2 2 0 012 2v3m-2-3l-2-2m2 2l2-2M17 17H7a2 2 0 01-2-2v-3m2 3l2 2m-2-2l-2 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+    <div class="progress-row">
+      <span class="time">1:24</span>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: 38%"></div>
+      </div>
+      <span class="time">3:41</span>
+    </div>
+  </div>
+
+  <div class="player-extras">
+    <button class="icon-btn" aria-label="Lyrics">
+      <svg viewBox="0 0 24 24"><path d="M5 4h14a1 1 0 011 1v10a1 1 0 01-1 1H9l-4 4V5a1 1 0 011-1z"/></svg>
+    </button>
+    <button class="icon-btn" aria-label="Queue">
+      <svg viewBox="0 0 24 24"><path d="M4 6h11v2H4V6zm0 5h11v2H4v-2zm0 5h7v2H4v-2zm14-9v10l5-5-5-5z"/></svg>
+    </button>
+    <button class="icon-btn" aria-label="Volume">
+      <svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 5V4L8 9H4z"/></svg>
+    </button>
+    <div class="volume-bar">
+      <div class="volume-fill" style="width: 65%"></div>
+    </div>
+  </div>
+</footer>
+
+<script src="Spotify.js"></script>
+</body>
+</html>
+
+
+
+
+/* ===================== RESET & BASE ===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-black: #000000;
+  --bg-base: #121212;
+  --bg-elevated: #181818;
+  --bg-highlight: #242424;
+  --bg-press: #2a2a2a;
+  --text-white: #ffffff;
+  --text-subdued: #a7a7a7;
+  --brand-green: #1ed760;
+  --brand-green-press: #1fdf64;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --sidebar-width: 280px;
+  --player-height: 90px;
+  --topbar-height: 64px;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: var(--bg-black);
+  color: var(--text-white);
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  object-fit: cover;
+}
+
+svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-highlight);
+  border-radius: 8px;
+  border: 3px solid var(--bg-black);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3a3a;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ===================== APP SHELL ===================== */
+.app {
+  display: flex;
+  gap: 8px;
+  padding: 8px 8px 0 8px;
+  height: calc(100vh - var(--player-height));
+}
+
+/* ===================== SIDEBAR ===================== */
+.sidebar {
+  width: var(--sidebar-width);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+}
+
+.sidebar-top {
+  background: var(--bg-base);
+  border-radius: 8px;
+  padding: 20px 12px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 8px 20px;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.main-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 12px;
+  border-radius: 4px;
+  font-weight: 700;
+  color: var(--text-subdued);
+  transition: color 0.15s ease;
+}
+
+.nav-item svg {
+  width: 22px;
+  height: 22px;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  color: var(--text-white);
+}
+
+.library {
+  background: var(--bg-base);
+  border-radius: 8px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 8px;
+}
+
+.library-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 4px 12px;
+}
+
+.library-toggle {
+  padding: 8px;
+  font-weight: 700;
+  color: var(--text-white);
+}
+
+.icon-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-subdued);
+  border-radius: 50%;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.icon-btn:hover {
+  color: var(--text-white);
+  background: var(--bg-highlight);
+}
+
+.icon-btn.round {
+  background: var(--bg-black);
+  width: 28px;
+  height: 28px;
+}
+
+.icon-btn.small {
+  width: 24px;
+  height: 24px;
+}
+
+.filter-pills {
+  display: flex;
+  gap: 8px;
+  padding: 0 4px 12px;
+}
+
+.pill {
+  padding: 7px 14px;
+  border-radius: 100px;
+  background: var(--bg-highlight);
+  color: var(--text-white);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.pill.active {
+  background: var(--text-white);
+  color: var(--bg-black);
+}
+
+.playlist-list {
+  overflow-y: auto;
+  flex: 1;
+}
+
+.playlist-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 4px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.playlist-item:hover {
+  background: var(--bg-highlight);
+}
+
+.playlist-item img {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.playlist-name {
+  font-weight: 600;
+  color: var(--text-white);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.playlist-meta {
+  color: var(--text-subdued);
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ===================== MAIN ===================== */
+.main {
+  flex: 1;
+  background: linear-gradient(180deg, #3a2a45 0, var(--bg-base) 320px);
+  border-radius: 8px;
+  overflow-y: auto;
+  position: relative;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  background: rgba(20, 14, 24, 0.55);
+  backdrop-filter: blur(20px);
+}
+
+.nav-arrows {
+  display: flex;
+  gap: 16px;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.pill-btn {
+  padding: 8px 16px;
+  border-radius: 100px;
+  background: transparent;
+  color: var(--text-white);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.pill-btn:hover {
+  transform: scale(1.04);
+}
+
+.user-chip {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--bg-highlight);
+  cursor: pointer;
+}
+
+.user-chip img {
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  padding: 24px 32px 40px;
+}
+
+.greeting-row h1 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+}
+
+/* Quick-access grid */
+.quick-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 900px) {
+  .quick-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.quick-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  height: 64px;
+  transition: background 0.2s ease;
+}
+
+.quick-card:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.quick-card img {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+}
+
+.quick-card span {
+  font-weight: 700;
+  font-size: 14px;
+  flex: 1;
+  padding-right: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Rows of cards */
+.row {
+  margin-bottom: 40px;
+}
+
+.row-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.row-header h2 {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.show-all {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-subdued);
+}
+
+.show-all:hover {
+  text-decoration: underline;
+  color: var(--text-white);
+}
+
+.card-scroll {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 176px;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.card {
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  padding: 14px;
+  transition: background 0.2s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  background: var(--bg-highlight);
+}
+
+.card-art {
+  position: relative;
+  margin-bottom: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.card-art img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.card-art.round {
+  border-radius: 50%;
+}
+
+.card-art.round img {
+  border-radius: 50%;
+}
+
+.card h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card p {
+  font-size: 13px;
+  color: var(--text-subdued);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.4;
+}
+
+.play-btn {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--brand-green);
+  color: var(--bg-black);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.45);
+}
+
+.quick-card .play-btn {
+  right: 12px;
+  bottom: auto;
+  top: 50%;
+  transform: translateY(calc(-50% + 8px));
+}
+
+.card:hover .play-btn,
+.quick-card:hover .play-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.quick-card:hover .play-btn {
+  transform: translateY(-50%);
+}
+
+.play-btn:hover {
+  transform: scale(1.06) translateY(0) !important;
+  background: var(--brand-green-press);
+}
+
+/* Footer inside content */
+.content-footer {
+  margin-top: 24px;
+  padding-top: 24px;
+}
+
+.footer-cols {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(140px, 1fr));
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-col h4 {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.footer-col a {
+  font-size: 13px;
+  color: var(--text-subdued);
+}
+
+.footer-col a:hover {
+  color: var(--text-white);
+  text-decoration: underline;
+}
+
+.content-footer hr {
+  border: none;
+  border-top: 1px solid var(--border-subtle);
+  margin-bottom: 16px;
+}
+
+.legal {
+  font-size: 12px;
+  color: var(--text-subdued);
+}
+
+/* ===================== PLAYER BAR ===================== */
+.player-bar {
+  height: var(--player-height);
+  background: var(--bg-base);
+  border-top: 1px solid var(--border-subtle);
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 2fr) 1fr;
+  align-items: center;
+  padding: 0 16px;
+  gap: 16px;
+}
+
+.player-track {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.player-track img {
+  width: 56px;
+  height: 56px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.player-track-info {
+  min-width: 0;
+}
+
+.track-title {
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.track-artist {
+  font-size: 12px;
+  color: var(--text-subdued);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.player-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  max-width: 640px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.player-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.player-controls svg {
+  width: 18px;
+  height: 18px;
+}
+
+.play-toggle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--text-white);
+  color: var(--bg-black);
+}
+
+.play-toggle:hover {
+  transform: scale(1.06);
+  background: var(--text-white);
+}
+
+.progress-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.time {
+  font-size: 11px;
+  color: var(--text-subdued);
+  min-width: 32px;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 4px;
+  background: var(--bg-highlight);
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--text-white);
+  border-radius: 2px;
+  position: relative;
+}
+
+.progress-bar:hover .progress-fill {
+  background: var(--brand-green);
+}
+
+.player-extras {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.volume-bar {
+  width: 90px;
+  height: 4px;
+  background: var(--bg-highlight);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.volume-fill {
+  height: 100%;
+  background: var(--text-white);
+  border-radius: 2px;
+}
+
+.volume-bar:hover .volume-fill {
+  background: var(--brand-green);
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 1000px) {
+  .sidebar {
+    width: 72px;
+  }
+  .logo span,
+  .nav-item span,
+  .library-toggle span,
+  .playlist-info {
+    display: none;
+  }
+  .filter-pills {
+    display: none;
+  }
+  .logo {
+    justify-content: center;
+    padding: 0 0 20px;
+  }
+  .nav-item {
+    justify-content: center;
+  }
+  .playlist-item {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 720px) {
+  .app {
+    padding: 8px 8px 0;
+  }
+  .sidebar {
+    display: none;
+  }
+  .content {
+    padding: 16px;
+  }
+  .player-extras .volume-bar {
+    display: none;
+  }
+  .footer-cols {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
+
+/* Focus visibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--text-white);
+  outline-offset: 2px;
+}
+
+
+
+
+// Minimal JS — just enough interactivity to make the static UI feel alive.
+// All layout and styling lives in HTML/CSS; this file only toggles state.
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  // ---- Dynamic greeting based on time of day ----
+  const greeting = document.getElementById('greeting');
+  if (greeting) {
+    const hour = new Date().getHours();
+    let text = 'Good evening';
+    if (hour < 12) text = 'Good morning';
+    else if (hour < 18) text = 'Good afternoon';
+    greeting.textContent = text;
+  }
+
+  // ---- Play / pause toggle on the main player button ----
+  const playToggle = document.querySelector('.play-toggle');
+  const PLAY_ICON = '<path d="M8 5.5v13a1 1 0 001.5.87l11-6.5a1 1 0 000-1.74l-11-6.5A1 1 0 008 5.5z"/>';
+  const PAUSE_ICON = '<path d="M8 5a1 1 0 00-1 1v12a1 1 0 002 0V6a1 1 0 00-1-1zm8 0a1 1 0 00-1 1v12a1 1 0 002 0V6a1 1 0 00-1-1z"/>';
+
+  if (playToggle) {
+    playToggle.addEventListener('click', () => {
+      const isPlaying = playToggle.classList.toggle('is-playing');
+      playToggle.querySelector('svg').innerHTML = isPlaying ? PAUSE_ICON : PLAY_ICON;
+      playToggle.setAttribute('aria-label', isPlaying ? 'Pause' : 'Play');
+    });
+  }
+
+  // ---- Any card/quick-card play button also flips the main toggle ----
+  document.querySelectorAll('.card .play-btn, .quick-card .play-btn').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (playToggle && !playToggle.classList.contains('is-playing')) {
+        playToggle.click();
+      }
+    });
+  });
+
+  // ---- Seekable progress bar ----
+  const progressBar = document.querySelector('.progress-bar');
+  const progressFill = document.querySelector('.progress-fill');
+  if (progressBar && progressFill) {
+    progressBar.addEventListener('click', (e) => {
+      const rect = progressBar.getBoundingClientRect();
+      const pct = ((e.clientX - rect.left) / rect.width) * 100;
+      progressFill.style.width = `${Math.min(100, Math.max(0, pct))}%`;
+    });
+  }
+
+  // ---- Adjustable volume bar ----
+  const volumeBar = document.querySelector('.volume-bar');
+  const volumeFill = document.querySelector('.volume-fill');
+  if (volumeBar && volumeFill) {
+    volumeBar.addEventListener('click', (e) => {
+      const rect = volumeBar.getBoundingClientRect();
+      const pct = ((e.clientX - rect.left) / rect.width) * 100;
+      volumeFill.style.width = `${Math.min(100, Math.max(0, pct))}%`;
+    });
+  }
+
+  // ---- Sidebar filter pills (Playlists / Artists / Albums) ----
+  document.querySelectorAll('.pill').forEach((pill) => {
+    pill.addEventListener('click', () => {
+      document.querySelectorAll('.pill').forEach((p) => p.classList.remove('active'));
+      pill.classList.add('active');
+    });
+  });
+
+  // ---- Sidebar main nav (Home / Search) ----
+  document.querySelectorAll('.main-nav .nav-item').forEach((item) => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.querySelectorAll('.main-nav .nav-item').forEach((n) => n.classList.remove('active'));
+      item.classList.add('active');
+    });
+  });
+
+});
