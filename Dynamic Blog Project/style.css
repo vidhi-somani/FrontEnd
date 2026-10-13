@@ -1,0 +1,101 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #202020;
+    line-height: 1.6;
+}
+
+.header{
+    background-color: #333;
+    color: #fff;
+    padding: 35px 15px;
+    text-align: center;
+}
+
+.header h1{
+    margin: 0;
+    font-size: 35px;
+}
+
+.header p{
+    margin-bottom: 0;
+}
+
+.container{
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+.controls{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input{
+    flex: 1;
+    min-width: 0;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+button{
+    padding: 12px 16px;
+    font-size: 15px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #555;
+}
+button:disabled{
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+statusMessage{
+    color:#202020
+}
+
+.error{
+    color: red !important;
+}
+
+.post-card p{
+    color:#202020;
+    overflow-wrap:anywhere;
+}
+
+.post-number{
+    color:#304e9b;
+    font-size:13px;
+    font-weight:bold;
+}
+@media (max-width:800px) {
+    .post-grid{
+        grid-template-columns:(2,minmax(0,1fr));
+    }
+}
+@media (max-width:550px){
+    .posts-grid{
+        grid-template-column: 1fr;
+    }
+    .controls{
+        flex-direction: column;
+    }
+    .headerh1{
+        
+    }
+}
