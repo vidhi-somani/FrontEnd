@@ -1,120 +1,198 @@
-
 import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [task, setTask] = useState("");
-  const [tasks, setTasks] = useState([]);
+    const [todos, setTodos] = useState([]);
+    const [task, setTask] = useState("");
+    const [filter, setFilter] = useState("All");
+    const [editingId, setEditingId] = useState(null);
+    const [editText, setEditText] = useState("");
 
-  function addTask() {
-    if (task.trim() === "") {
-      return;
-    }
+    // Add new task
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
-    const newTask = {
-      id: Date.now(),
-      text: task.trim(),
-      completed: false,
+        const title = task.trim();
+
+        if (!title) return;
+
+        const newTodo = {
+            id: crypto.randomUUID(),
+            title,
+            completed: false,
+        };
+
+        setTodos((prev) => [...prev, newTodo]);
+        setTask("");
     };
 
-    setTasks([...tasks, newTask]);
-    setTask("");
-  }
+    // Mark task complete or incomplete
+    const toggleTodo = (id) => {
+        setTodos((prev) =>
+            prev.map((todo) =>
+                todo.id === id
+                    ? {
+                          ...todo,
+                          completed: !todo.completed,
+                      }
+                    : todo
+            )
+        );
+    };
 
-  function toggleTask(id) {
-    setTasks(
-      tasks.map((item) =>
-        item.id === id
-          ? { ...item, completed: !item.completed }
-          : item
-      )
-    );
-  }
+    // Delete task
+    const deleteTodo = (id) => {
+        setTodos((prev) =>
+            prev.filter((todo) => todo.id !== id)
+        );
+    };
 
-  function deleteTask(id) {
-    setTasks(tasks.filter((item) => item.id !== id));
-  }
+    // Start editing task
+    const startEdit = (todo) => {
+        setEditingId(todo.id);
+        setEditText(todo.title);
+    };
 
-  function handleKeyDown(event) {
-    if (event.key === "Enter") {
-      addTask();
-    }
-  }
+    // Save edited task
+    const saveEdit = (id) => {
+        const title = editText.trim();
 
-  const completedCount = tasks.filter(
-    (item) => item.completed
-  ).length;
+        if (!title) return;
 
-  return (
-    <div className="app">
-      <div className="todo-container">
-        <h1>My To-Do List</h1>
-        <p className="subtitle">Plan your day, one task at a time.</p>
+        setTodos((prev) =>
+            prev.map((todo) =>
+                todo.id === id
+                    ? { ...todo, title }
+                    : todo
+            )
+        );
 
-        <div className="input-section">
-          <input
-            type="text"
-            placeholder="Enter a new task..."
-            value={task}
-            onChange={(event) => setTask(event.target.value)}
-            onKeyDown={handleKeyDown}
-          />
+        setEditingId(null);
+        setEditText("");
+    };
 
-          <button onClick={addTask} className="add-btn">
-            Add
-          </button>
-        </div>
+    // Filter tasks
+    const filteredTodos = todos.filter((todo) => {
+        if (filter === "Completed") {
+            return todo.completed;
+        }
 
-        <div className="task-summary">
-          <span>Total: {tasks.length}</span>
-          <span>Completed: {completedCount}</span>
-        </div>
+        if (filter === "Pending") {
+            return !todo.completed;
+        }
 
-        <ul className="task-list">
-          {tasks.length === 0 ? (
-            <li className="empty-message">
-              No tasks yet. Add your first task!
-            </li>
-          ) : (
-            tasks.map((item) => (
-              <li
-                key={item.id}
-                className={`task-item ${
-                  item.completed ? "completed" : ""
-                }`}
-              >
-                <label className="task-label">
-                  <input
-                    type="checkbox"
-                    checked={item.completed}
-                    onChange={() => toggleTask(item.id)}
-                  />
-                  <span>{item.text}</span>
-                </label>
+        return true;
+    });
 
-                <button
-                  className="delete-btn"
-                  onClick={() => deleteTask(item.id)}
-                  aria-label={`Delete ${item.text}`}
-                >
-                  Delete
+    return (
+        <div className="App">
+            <h1>Todo App</h1>
+
+            {/* Add Task */}
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    placeholder="Enter a task..."
+                    value={task}
+                    onChange={(e) => setTask(e.target.value)}
+                />
+
+                <button type="submit">Add Task</button>
+            </form>
+
+            {/* Filter Tasks */}
+            <div className="filters">
+                <button onClick={() => setFilter("All")}>
+                    All
                 </button>
-              </li>
-            ))
-          )}
-        </ul>
 
-        {tasks.length > 0 && (
-          <button
-            className="clear-btn"
-            onClick={() => setTasks([])}
-          >
-            Clear All Tasks
-          </button>
-        )}
-      </div>
-    </div>
-  );
+                <button onClick={() => setFilter("Pending")}>
+                    Pending
+                </button>
+
+                <button onClick={() => setFilter("Completed")}>
+                    Completed
+                </button>
+            </div>
+
+            {/* Display Tasks */}
+            <ul>
+                {filteredTodos.map((todo) => (
+                    <li key={todo.id}>
+                        <input
+                            type="checkbox"
+                            checked={todo.completed}
+                            onChange={() => toggleTodo(todo.id)}
+                        />
+
+                        {editingId === todo.id ? (
+                            <>
+                                <input
+                                    type="text"
+                                    value={editText}
+                                    onChange={(e) =>
+                                        setEditText(e.target.value)
+                                    }
+                                />
+
+                                <button
+                                    onClick={() => saveEdit(todo.id)}
+                                >
+                                    Save
+                                </button>
+
+                                <button
+                                    onClick={() => {
+                                        setEditingId(null);
+                                        setEditText("");
+                                    }}
+                                >
+                                    Cancel
+                                </button>
+                            </>
+                        ) : (
+                            <>
+                                <span
+                                    style={{
+                                        textDecoration: todo.completed
+                                            ? "line-through"
+                                            : "none",
+                                    }}
+                                >
+                                    {todo.title}
+                                </span>
+
+                                <button
+                                    onClick={() => startEdit(todo)}
+                                >
+                                    Edit
+                                </button>
+
+                                <button
+                                    onClick={() => deleteTodo(todo.id)}
+                                >
+                                    Delete
+                                </button>
+                            </>
+                        )}
+                    </li>
+                ))}
+            </ul>
+
+            {/* Task Statistics */}
+            <p>Total Tasks: {todos.length}</p>
+
+            <p>
+                Completed:{" "}
+                {todos.filter((todo) => todo.completed).length}
+            </p>
+
+            <p>
+                Pending:{" "}
+                {todos.filter((todo) => !todo.completed).length}
+            </p>
+        </div>
+    );
 }
 
 export default App;
