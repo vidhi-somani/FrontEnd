@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { RecipeProvider } from "./context/RecipeContext";
-import Navbar from "./components/Nvmbar";
+import Navbar from "./Components/Nvmbar";
 import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
 import AddRecipe from "./pages/AddRecipe";

@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useRecipes } from "../context/RecipeContext";
-import RecipeCard from "../components/RecipeCard";
+import RecipeCard from "../Components/RecipeCard";
 
 const CATEGORIES = [
   { id: "All", label: "All Recipes", icon: "✨" },

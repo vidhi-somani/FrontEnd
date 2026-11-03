@@ -1,6 +1,6 @@
 import { useNavigate, Link } from "react-router-dom";
 import { useRecipes } from "../context/RecipeContext";
-import RecipeForm from "../components/Recipeform";
+import RecipeForm from "../Components/Recipeform";
 
 export default function AddRecipe() {
   const { addRecipe } = useRecipes();

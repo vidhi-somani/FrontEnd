@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useRecipes } from "../context/RecipeContext";
-import RecipeCard from "../components/RecipeCard";
+import RecipeCard from "../Components/RecipeCard";
 
 export default function Favorites() {
   const { recipes, favorites } = useRecipes();

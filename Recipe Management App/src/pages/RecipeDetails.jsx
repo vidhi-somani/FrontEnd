@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useRecipes } from "../context/RecipeContext";
-import RecipeForm from "../components/Recipeform";
+import RecipeForm from "../Components/Recipeform";
 
 const DEFAULT_IMAGE = "https://images.unsplash.com/photo-1495521821757-a1efb6729352?auto=format&fit=crop&w=800&q=80";
 
